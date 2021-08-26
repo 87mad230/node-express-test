@@ -5,8 +5,8 @@ console.log("Hello World");
 app.get("/", (req,res) => {
     res.sendFile(__dirname + "/views/index.html");
 })
-let static = express.static(__dirname + "/public");
-app.use(static);
+let static1 = express.static(__dirname + "/public");
+app.use("/public",static1);
 
 
 
