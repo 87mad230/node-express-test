@@ -2,11 +2,11 @@ var express = require('express');
 var app = express();
 
 
-app.get('/json', (req,res) => {
-    const style = process.env.MESSAGE_STYLE;
-    res.send(style);
-})
-
+const mdware = (req,res,next) => {
+    console.log(`${req.method} ${req.path} - ${req.ip}`);
+    next();
+}
+app.use(mdware);
 
 
 
