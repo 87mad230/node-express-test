@@ -1,12 +1,12 @@
 var express = require('express');
 var app = express();
 
-
-const mdware = (req,res,next) => {
-    console.log(`${req.method} ${req.path} - ${req.ip}`);
+app.get('/now', (req,res, next) => {
+    let time = new Date().toString();
     next();
-}
-app.use(mdware);
+}, (req,res) => {
+    res.json({'time': time});
+})
 
 
 
