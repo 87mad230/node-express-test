@@ -1,11 +1,12 @@
 var express = require('express');
 var app = express();
 
-app.get('/:word/echo', (req,res) => {
-    res.json({'echo' : req.params.word});
-})
 
+const nameHandler = (req,res) => {
+    res.json({'name':`${req.query.first} ${req.query.last}`});
+}
 
+app.route('/name').get(nameHandler).post(nameHandler);
 
 
 
